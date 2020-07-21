@@ -8,7 +8,10 @@ import Nav from './nav'
 export default class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = { view: 'view-cards' }
+    this.state = {
+      view: 'view-cards',
+      cards: []
+    }
     this.setView = this.setView.bind(this);
   }
 
@@ -19,7 +22,7 @@ export default class App extends React.Component {
   getView() {
     switch (this.state.view) {
       case 'create-card':
-        return <CreateCard />;
+        return <CreateCard addCards={this.addCards}/>;
       case 'review-cards':
         return <ReviewCards />;
       case 'view-cards':
@@ -29,7 +32,18 @@ export default class App extends React.Component {
     }
   }
 
+  saveCards() {
+    const cards = JSON.stringify(this.state.cards);
+    localStorage.setItem('flash-cards', cards)
+  }
+
+  addCards(card) {
+    newCards = this.state.cards.concat(card);
+    this.setState({ cards: newCards }, this.saveCards);
+  }
+
   render() {
+    console.log('Cards From App:', this.state.cards);
     return (
       <div>
         <Nav setView={this.setView} view={this.state.view}/>
