@@ -9,7 +9,7 @@ export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      view: 'view-cards',
+      view: 'create-card',
       cards: []
     }
     this.setView = this.setView.bind(this);
@@ -45,7 +45,7 @@ export default class App extends React.Component {
   render() {
     console.log('Cards From App:', this.state.cards);
     return (
-      <div>
+      <div className="container">
         <Nav setView={this.setView} view={this.state.view}/>
         { this.getView() }
       </div>
