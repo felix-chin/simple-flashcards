@@ -8,6 +8,8 @@ export default class CreateCard extends React.Component {
       answer: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleChange(event) {
@@ -17,16 +19,19 @@ export default class CreateCard extends React.Component {
   }
 
   handleSubmit() {
-    const addCards = props.addCards;
+    event.preventDefault();
+    const addCards = this.props.addCards;
     addCards(this.state)
+    this.handleReset();
   }
 
   handleReset() {
+    const setView =  this.props.setView;
     this.setState({
       question: '',
       answer: ''
     })
-
+    setView('view-cards');
   }
 
   render() {

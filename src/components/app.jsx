@@ -13,6 +13,7 @@ export default class App extends React.Component {
       cards: []
     }
     this.setView = this.setView.bind(this);
+    this.addCards = this.addCards.bind(this);
   }
 
   setView(newView) {
@@ -22,7 +23,7 @@ export default class App extends React.Component {
   getView() {
     switch (this.state.view) {
       case 'create-card':
-        return <CreateCard addCards={this.addCards}/>;
+        return <CreateCard addCards={this.addCards} setView={this.setView} />;
       case 'review-cards':
         return <ReviewCards />;
       case 'view-cards':
@@ -38,7 +39,8 @@ export default class App extends React.Component {
   }
 
   addCards(card) {
-    newCards = this.state.cards.concat(card);
+    const cards = this.state.cards.slice(0);
+    const newCards = cards.concat(card);
     this.setState({ cards: newCards }, this.saveCards);
   }
 
