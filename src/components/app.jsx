@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ViewCards from './view-cards';
 import ReviewCards from './review-cards';
 import CreateCard from './create-card';
-import Nav from './nav'
-
-
+import Nav from './nav';
+import { CardsProvider } from '../context/context.js';
 export default class App extends React.Component {
   constructor(props){
     super(props);
@@ -49,7 +48,9 @@ export default class App extends React.Component {
     return (
       <div className="container">
         <Nav setView={this.setView} view={this.state.view}/>
-        { this.getView() }
+        <CardsProvider value={this.state.cards}>
+          {this.getView()}
+        </CardsProvider>
       </div>
     );
   }

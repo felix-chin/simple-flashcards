@@ -37,23 +37,25 @@ export default class CreateCard extends React.Component {
   render() {
     return (
       <>
-        <h1 className="text-center">Create New Card</h1>
-        <form onSubmit={this.handleSubmit} onReset={this.handleReset} className="w-50 mx-auto">
-          <div className="d-flex flex-column">
-            <label htmlFor="question">
-              Question:
+        <h2 className="text-center font-weight-bold mb-4">Create New Card</h2>
+        <div className="container">
+          <form onSubmit={this.handleSubmit} onReset={this.handleReset} className="w-50 mx-auto">
+            <div className="d-flex flex-column">
+              <label htmlFor="question">
+                Question:
             </label>
-            <textarea name="question" value={this.state.question} onChange={this.handleChange} />
-            <label htmlFor="answer" className="mt-3">
-              Answer:
+              <textarea name="question" value={this.state.question} onChange={this.handleChange} />
+              <label htmlFor="answer" className="mt-3">
+                Answer:
             </label>
-            <textarea name="answer" value={this.state.answer} onChange={this.handleChange} />
-          </div>
-          <div className="d-flex justify-content-end mt-3">
-            <button type="reset" className="btn btn-outline-danger mr-2">Cancel</button>
-            <button type="submit" className="btn btn-outline-primary">Save Card</button>
-          </div>
-        </form>
+              <textarea name="answer" value={this.state.answer} onChange={this.handleChange} />
+            </div>
+            <div className="d-flex justify-content-end mt-3">
+              <button type="reset" className="btn btn-outline-danger mr-2">Cancel</button>
+              <button type="submit" className="btn btn-outline-primary">Save Card</button>
+            </div>
+          </form>
+        </div>
       </>
     )
   }
