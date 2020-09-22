@@ -22,10 +22,10 @@ export default function Nav(props) {
   }
 
   return (
-    <div className="nav d-flex justify-content-end mt-1 mr-1">
+    <nav className="nav navbar d-flex justify-content-end mt-1 mr-1">
       <span role="button" onClick={() => setView('view-cards')} className={'btn btn-outline-primary border-0 ' + viewClass}>View Cards</span>
       <span role="button" onClick={() => setView('review-cards')} className={'btn btn-outline-primary border-0 ml-1 ' + reviewClass}>Review</span>
       <span role="button" onClick={() => setView('create-card')} className={'btn btn-outline-primary border-0 ml-1 ' + createClass}>Create Card</span>
-    </div>
+    </nav>
   )
 }
