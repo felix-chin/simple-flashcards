@@ -14,12 +14,15 @@ export default function ViewCards(props) {
               <div key={i} className="col mb-4">
                 <div className="card h-100">
                   <div className="card-body bg-dark">
-                    <h6 className="card-title text-muted font-weight-bold">Question:</h6>
+                    <h5 className="card-title text-muted font-weight-bold">Question:</h5>
                     <p className="card-text text-white">{card.question}</p>
                   </div>
                   <div className="card-body bg-secondary">
-                    <h6 className="card-title text-dark font-weight-bold">Answer:</h6>
+                    <h5 className="card-title text-dark font-weight-bold">Answer:</h5>
                     <p className="card-text text-white">{card.answer}</p>
+                  </div>
+                  <div className="card-footer text-center bg-dark">
+                    <i className="fas fa-trash-alt fa-inverse text-muted"></i>
                   </div>
                 </div>
               </div>
