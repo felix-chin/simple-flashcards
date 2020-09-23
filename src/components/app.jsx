@@ -3,16 +3,18 @@ import ViewCards from './view-cards';
 import ReviewCards from './review-cards';
 import CreateCard from './create-card';
 import Nav from './nav';
-import { CardsProvider } from '../context/context.js';
+import { ContextProvider } from '../context/context.js';
 export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       view: 'create-card',
-      cards: []
+      cards: [],
+      activeCard: 0
     }
     this.setView = this.setView.bind(this);
     this.addCards = this.addCards.bind(this);
+    this.setActiveCard = this.setActiveCard.bind(this);
   }
 
   setView(newView) {
@@ -43,14 +45,20 @@ export default class App extends React.Component {
     this.setState({ cards: newCards }, this.saveCards);
   }
 
+  setActiveCard(i) {
+    this.setState({  activeCard: i })
+  }
+
   render() {
+    const state = this.state;
+    const setActiveCard = this.setActiveCard;
     console.log('Cards From App:', this.state.cards);
     return (
       <div className="container">
         <Nav setView={this.setView} view={this.state.view}/>
-        <CardsProvider value={this.state.cards}>
+        <ContextProvider value={{ state, setActiveCard }} >
           {this.getView()}
-        </CardsProvider>
+        </ContextProvider>
       </div>
     );
   }
