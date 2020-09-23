@@ -6,6 +6,24 @@ body {
   height: 40vh;
 }
 
+.arrow {
+  font-size: 60px;
+}
+
+.confirm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .7);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.modal-content {
+  width: 50%;
+}
+
 .hover:hover {
   color: white;
   cursor: pointer;

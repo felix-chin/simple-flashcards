@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Context from '../context/context.js';
 
 const ReviewCards = () => {
@@ -7,10 +7,6 @@ const ReviewCards = () => {
 
   const [ flipped, flipCard ] = useState(false);
   const [ color, changeColor ] = useState('bg-dark');
-
-  useEffect(() => {
-    setActiveCard(0);
-  }, [])
 
   const nextCard = (e) => {
     e.stopPropagation();
@@ -55,7 +51,7 @@ const ReviewCards = () => {
       : <div onClick={handleCardFlip} className={'container cursor-pointer ' + color} >
           <div className="row justify-content-center align-items-center card-review">
             <div className="col-md-1">
-              <i onClick={(e) => previousCard(e)} className="fas fa-chevron-left h1 hover"></i>
+              <i onClick={(e) => previousCard(e)} className="fas fa-chevron-left arrow hover"></i>
             </div>
             <div className="col-md-10">
               <h2 className="text-center font-weight-bold text-white">
@@ -66,7 +62,7 @@ const ReviewCards = () => {
               </h2>
             </div>
             <div className="col-md-1">
-              <i onClick={(e) => nextCard(e)} className="fas fa-chevron-right h1 hover"></i>
+              <i onClick={(e) => nextCard(e)} className="fas fa-chevron-right arrow hover"></i>
             </div>
           </div>
         </div>

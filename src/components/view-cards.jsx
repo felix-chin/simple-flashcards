@@ -1,11 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Context from '../context/context.js';
+import Modal from './modal';
 
 export default function ViewCards(props) {
-  const { state } = useContext(Context);
-  const cards = state.cards
+  const { state, setActiveCard } = useContext(Context);
+  const cards = state.cards;
+  const activeCard = state.activeCard;
+
+  const [ isOpen, toggleModal ] = useState(false);
+
+  const handleModal = (i) => {
+    setActiveCard(i);
+    toggleModal(true);
+  }
+
   return (
     <>
+      { isOpen &&
+        <Modal activeCard={cards[activeCard]} toggleModal={toggleModal} deleteCards={props.deleteCards}/>
+      }
       <h2 className="text-center font-weight-bold mb-3">My Cards</h2>
       <div className="container">
         <div className="row row-cols-md-3">
@@ -22,7 +35,7 @@ export default function ViewCards(props) {
                     <p className="card-text text-white">{card.answer}</p>
                   </div>
                   <div className="card-footer text-center bg-dark">
-                    <i className="fas fa-trash-alt fa-inverse text-muted"></i>
+                    <i onClick={() => handleModal(i)} className="fas fa-trash-alt fa-inverse text-muted"></i>
                   </div>
                 </div>
               </div>
