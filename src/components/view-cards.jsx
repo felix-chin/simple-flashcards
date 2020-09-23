@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import CardsContext from '../context/context.js';
+import Context from '../context/context.js';
 
 export default function ViewCards(props) {
-  const cards = useContext(CardsContext);
+  const { state } = useContext(Context);
+  const cards = state.cards
   return (
     <>
       <h2 className="text-center font-weight-bold mb-4">My Cards</h2>
