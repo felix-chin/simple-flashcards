@@ -38,7 +38,6 @@ const ReviewCards = () => {
     changeColor('bg-dark');
   }
 
-
   const handleCardFlip = () => {
     flipCard(prevState => !prevState);
     flipped ? changeColor('bg-dark') : changeColor('bg-secondary');
