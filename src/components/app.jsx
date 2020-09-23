@@ -10,10 +10,11 @@ export default class App extends React.Component {
     this.state = {
       view: 'create-card',
       cards: [],
-      activeCard: 0
+      activeCard: null
     }
     this.setView = this.setView.bind(this);
     this.addCards = this.addCards.bind(this);
+    this.deleteCards = this.deleteCards.bind(this);
     this.setActiveCard = this.setActiveCard.bind(this);
   }
 
@@ -28,7 +29,7 @@ export default class App extends React.Component {
       case 'review-cards':
         return <ReviewCards />;
       case 'view-cards':
-        return <ViewCards />;
+        return <ViewCards deleteCards={this.deleteCards} />;
       default:
         return null;
     }
@@ -49,13 +50,20 @@ export default class App extends React.Component {
     this.setState({  activeCard: i })
   }
 
+  deleteCards() {
+    const newCards = this.state.cards.slice(0)
+    newCards.splice(this.state.activeCard, 1);
+    this.setState({ cards: newCards }, this.saveCards);
+  }
+
   render() {
     const state = this.state;
     const setActiveCard = this.setActiveCard;
+    const setView = this.setView;
     console.log('Cards From App:', this.state.cards);
     return (
       <div className="container">
-        <Nav setView={this.setView} view={this.state.view}/>
+        <Nav setView={this.setView} view={this.state.view} setActiveCard={this.setActiveCard} />
         <ContextProvider value={{ state, setActiveCard }} >
           {this.getView()}
         </ContextProvider>
