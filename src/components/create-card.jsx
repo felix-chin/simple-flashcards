@@ -37,7 +37,7 @@ export default class CreateCard extends React.Component {
   render() {
     return (
       <>
-        <h2 className="text-center font-weight-bold mb-4">Create New Card</h2>
+        <h2 className="text-center font-weight-bold mb-3">Create New Card</h2>
         <div className="container">
           <form onSubmit={this.handleSubmit} onReset={this.handleReset} className="w-50 mx-auto">
             <div className="d-flex flex-column">
