@@ -3,7 +3,7 @@ import Context from '../context/context.js';
 import Modal from './modal';
 
 export default function ViewCards(props) {
-  const { state, setActiveCard } = useContext(Context);
+  const { state, setActiveCard, setView } = useContext(Context);
   const cards = state.cards;
   const activeCard = state.activeCard;
 
@@ -12,6 +12,11 @@ export default function ViewCards(props) {
   const handleModal = (i) => {
     setActiveCard(i);
     toggleModal(true);
+  }
+
+  const handleUpdate = (i) => {
+    setActiveCard(i);
+    setView('update-cards');
   }
 
   return (
@@ -35,7 +40,8 @@ export default function ViewCards(props) {
                     <p className="card-text text-white">{card.answer}</p>
                   </div>
                   <div className="card-footer text-center bg-dark">
-                    <i onClick={() => handleModal(i)} className="fas fa-trash-alt fa-inverse text-muted"></i>
+                    <i onClick={() => handleUpdate(i)} className="far fa-edit text-muted mr-2 hover"></i>
+                    <i onClick={() => handleModal(i)} className="far fa-trash-alt text-muted hover"></i>
                   </div>
                 </div>
               </div>

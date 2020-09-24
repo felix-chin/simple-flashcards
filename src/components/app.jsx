@@ -3,6 +3,7 @@ import ViewCards from './view-cards';
 import ReviewCards from './review-cards';
 import CreateCard from './create-card';
 import Nav from './nav';
+import UpdateCard from './update-card';
 import { ContextProvider } from '../context/context.js';
 export default class App extends React.Component {
   constructor(props){
@@ -16,6 +17,7 @@ export default class App extends React.Component {
     this.addCards = this.addCards.bind(this);
     this.deleteCards = this.deleteCards.bind(this);
     this.setActiveCard = this.setActiveCard.bind(this);
+    this.editCards = this.editCards.bind(this);
   }
 
   setView(newView) {
@@ -30,6 +32,8 @@ export default class App extends React.Component {
         return <ReviewCards />;
       case 'view-cards':
         return <ViewCards deleteCards={this.deleteCards} />;
+      case 'update-cards':
+        return <UpdateCard editCards={this.editCards} />;
       default:
         return null;
     }
@@ -47,12 +51,18 @@ export default class App extends React.Component {
   }
 
   setActiveCard(i) {
-    this.setState({  activeCard: i })
+    this.setState({ activeCard: i })
   }
 
   deleteCards() {
-    const newCards = this.state.cards.slice(0)
+    const newCards = this.state.cards.slice(0);
     newCards.splice(this.state.activeCard, 1);
+    this.setState({ cards: newCards }, this.saveCards);
+  }
+
+  editCards(card) {
+    const newCards = this.state.cards.slice(0);
+    newCards.splice(this.state.activeCard, 1, card);
     this.setState({ cards: newCards }, this.saveCards);
   }
 
@@ -64,7 +74,7 @@ export default class App extends React.Component {
     return (
       <div className="container">
         <Nav setView={this.setView} view={this.state.view} setActiveCard={this.setActiveCard} />
-        <ContextProvider value={{ state, setActiveCard }} >
+        <ContextProvider value={{ state, setActiveCard, setView }} >
           {this.getView()}
         </ContextProvider>
       </div>
