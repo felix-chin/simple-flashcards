@@ -58,7 +58,7 @@ const ReviewCards = () => {
     <>
       <h2 className="text-center font-weight-bold mb-3">Review</h2>
       { state.cards.length === 0 ?
-        <h2 className="text-center font-weight-bold">Create flash cards first!</h2>
+        <h2 className="text-center font-weight-bold pt-4">Create flash cards first!</h2>
       : <>
           <ProgressBar complete={progress} />
           <div onClick={handleCardFlip} className={'container cursor-pointer ' + color} >
