@@ -24,8 +24,13 @@ body {
   width: 50%;
 }
 
-.hover:hover {
+.arrow:hover {
   color: white;
+  cursor: pointer;
+}
+
+.hover:hover {
+  transform: scale(1.2);
   cursor: pointer;
 }
 

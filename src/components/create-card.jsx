@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Form from './form';
 
 export default class CreateCard extends React.Component {
   constructor(props) {
@@ -12,14 +13,14 @@ export default class CreateCard extends React.Component {
     this.handleReset = this.handleReset.bind(this);
   }
 
-  handleChange(event) {
+  handleChange(e) {
     this.setState({
-      [event.target.name]: event.target.value
+      [e.target.name]: e.target.value
     })
   }
 
-  handleSubmit() {
-    event.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault();
     const addCards = this.props.addCards;
     addCards(this.state)
     this.handleReset();
@@ -39,22 +40,12 @@ export default class CreateCard extends React.Component {
       <>
         <h2 className="text-center font-weight-bold mb-3">Create New Card</h2>
         <div className="container">
-          <form onSubmit={this.handleSubmit} onReset={this.handleReset} className="w-50 mx-auto">
-            <div className="d-flex flex-column">
-              <label htmlFor="question">
-                Question:
-            </label>
-              <textarea name="question" value={this.state.question} onChange={this.handleChange} />
-              <label htmlFor="answer" className="mt-3">
-                Answer:
-            </label>
-              <textarea name="answer" value={this.state.answer} onChange={this.handleChange} />
-            </div>
-            <div className="d-flex justify-content-end mt-3">
-              <button type="reset" className="btn btn-outline-danger mr-2">Cancel</button>
-              <button type="submit" className="btn btn-outline-primary">Save Card</button>
-            </div>
-          </form>
+          <Form
+            card={this.state}
+            change={(e) => this.handleChange(e)}
+            reset={this.handleReset}
+            submit={(e) => this.handleSubmit(e)}
+          />
         </div>
       </>
     )
