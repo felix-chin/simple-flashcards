@@ -10,12 +10,11 @@ https://flashcards.felixchin.com/
 ## Technologies Used
 
 - React.js
-- Webpack 4
-- Babel
 - Bootstrap 4
 - HTML5
 - CSS3
-- font-awesome
+- Webpack 4
+- Babel
 - AWS EC2
 
 ## Features
@@ -36,7 +35,6 @@ https://flashcards.felixchin.com/
 
 ### System Requirements
 
-- Node.js 10 or higher
 - npm 6 or higher
 
 ### Getting Started
