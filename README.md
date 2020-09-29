@@ -1,4 +1,4 @@
-# react-flashcards
+# simple-flashcards
 A simple flashcard app made with React and styled with Bootstrap.
 
 ## Live Demo
