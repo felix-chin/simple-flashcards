@@ -5,7 +5,7 @@ A simple flashcard app made with React and styled with Bootstrap.
 
 Link to a live demo of the application: 
 
-https://flashcards.felixchin.com/
+https://simple-flashcards.felixchin.com/
 
 ## Technologies Used
 
@@ -29,7 +29,7 @@ https://flashcards.felixchin.com/
 
 ## Preview
 
-![react-flashcards](./flashcards.gif)
+![simple-flashcards](./simple-flashcards.gif)
 
 ## Development
 
@@ -41,8 +41,8 @@ https://flashcards.felixchin.com/
 
 1. Clone the repository:
     ```shell
-    git clone https://github.com/felix-chin/react-flashcards
-    cd react-flashcards
+    git clone https://github.com/felix-chin/simple-flashcards
+    cd simple-flashcards
     ```
 2. Install npm dependencies:
     ```shell
