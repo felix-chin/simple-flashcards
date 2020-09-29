@@ -37,3 +37,7 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.bolt-icon {
+  color:gold;
+}

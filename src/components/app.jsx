@@ -20,6 +20,13 @@ export default class App extends React.Component {
     this.editCards = this.editCards.bind(this);
   }
 
+  componentDidMount() {
+    const storedCards = JSON.parse(localStorage.getItem('flash-cards'));
+    if (storedCards.length > 0) {
+      this.setState({ cards: storedCards })
+    }
+  }
+
   setView(newView) {
     this.setState({ view: newView })
   }
@@ -70,7 +77,6 @@ export default class App extends React.Component {
     const state = this.state;
     const setActiveCard = this.setActiveCard;
     const setView = this.setView;
-    console.log('Cards From App:', this.state.cards);
     return (
       <div className="container">
         <Nav setView={this.setView} view={this.state.view} setActiveCard={this.setActiveCard} />

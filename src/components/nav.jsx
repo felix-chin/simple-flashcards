@@ -30,7 +30,7 @@ export default function Nav(props) {
   return (
     <nav className="navbar d-flex justify-content-end mb-4">
       <div className="navbar-brand">
-        <h4 onClick={() => setView('create-card')} className="font-weight-bold">Simple Flashcards</h4>
+        <h4 onClick={() => setView('create-card')} className="font-weight-bold cursor-pointer">Simple <i className="fas fa-bolt bolt-icon"></i> Flashcards</h4>
       </div>
       <div className="ml-auto">
         <span role="button" onClick={() => setView('view-cards')} className={'btn btn-outline-primary border-0 ' + viewClass}>View Cards</span>
