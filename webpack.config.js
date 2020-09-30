@@ -1,15 +1,8 @@
 const { join } = require('path');
 
-const clientPath = path.join(__dirname, 'src/');
-const publicPath = path.join(__dirname, 'dist/');
-
 module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
-  },
-  entry: clientPath,
-  output: {
-    path: publicPath
   },
   module: {
     rules: [
