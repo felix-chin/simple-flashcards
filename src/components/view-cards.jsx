@@ -26,7 +26,7 @@ export default function ViewCards(props) {
       }
       <h2 className="text-center font-weight-bold mb-3">My Cards</h2>
       <div className="container">
-        <div className="row row-cols-md-3">
+        <div className="row row-cols-md-3 row-cols-1">
           { cards.map((card, i) => {
             return (
               <div key={i} className="col mb-4">

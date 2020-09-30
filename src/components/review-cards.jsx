@@ -63,18 +63,18 @@ const ReviewCards = () => {
           <ProgressBar complete={progress} />
           <div onClick={handleCardFlip} className={'container cursor-pointer ' + color} >
             <div className="row justify-content-center align-items-center card-review">
-              <div className="col-md-1">
+              <div className="col-md-1 col-2 text-center">
                 <i onClick={(e) => previousCard(e)} className="fas fa-chevron-left arrow hover"></i>
               </div>
-              <div className="col-md-10">
-                <h2 className="text-center font-weight-bold text-white">
+              <div className="col-md-10 col-8">
+                <h2 className="text-center font-weight-bold text-white review-text">
                   { !flipped ?
                     state.cards[activeCard].question
                   : state.cards[activeCard].answer
                   }
                 </h2>
               </div>
-              <div className="col-md-1">
+              <div className="col-md-1 col-2 text-center">
                 <i onClick={(e) => nextCard(e)} className="fas fa-chevron-right arrow hover"></i>
               </div>
             </div>

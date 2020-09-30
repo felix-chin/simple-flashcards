@@ -3,7 +3,7 @@ body {
 }
 
 .card-review {
-  height: 40vh;
+  min-height: 40vh;
 }
 
 .arrow {
@@ -22,6 +22,24 @@ body {
 
 .modal-content {
   width: 50%;
+}
+
+.form {
+  width: 60%;
+}
+
+@media only screen and (max-width: 667px) {
+  .review-text, .arrow {
+    font-size: 24px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+
+  .form {
+    width: 100%;
+  }
 }
 
 .arrow:hover {

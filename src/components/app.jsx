@@ -22,8 +22,10 @@ export default class App extends React.Component {
 
   componentDidMount() {
     const storedCards = JSON.parse(localStorage.getItem('flash-cards'));
-    if (storedCards.length > 0) {
-      this.setState({ cards: storedCards })
+    if (!storedCards) {
+      return;
+    } else if (storedCards.length > 0) {
+      this.setState({ cards: storedCards });
     }
   }
 
