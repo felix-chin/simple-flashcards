@@ -6,6 +6,11 @@ body {
   min-height: 40vh;
 }
 
+.review-text {
+  transition: opacity 1s ease;
+}
+
+
 .arrow {
   font-size: 60px;
 }
@@ -29,8 +34,12 @@ body {
 }
 
 @media only screen and (max-width: 667px) {
-  .review-text, .arrow {
+  .review-text {
     font-size: 24px;
+  }
+
+  .arrow {
+    font-size: 36px;
   }
 
   .modal-content {
@@ -42,7 +51,7 @@ body {
   }
 }
 
-.arrow:hover {
+.arrow-hover:hover {
   color: white;
   cursor: pointer;
 }
@@ -58,4 +67,38 @@ body {
 
 .icon {
   color:#FFC107;
+}
+
+.animate-left {
+  position: relative;
+  animation-name: animateleft;
+  animation-duration: 1s
+}
+
+.animate-right {
+  position: relative;
+  animation-name: animateright;
+  animation-duration: 1s
+}
+
+@keyframes animateleft {
+  from {
+    left:-200px;
+    opacity:0
+  }
+  to {
+    left:0;
+    opacity:1
+  }
+}
+
+@keyframes animateright {
+  from {
+    right:-200px;
+    opacity:0
+  }
+  to {
+    right:0;
+    opacity:1
+  }
 }

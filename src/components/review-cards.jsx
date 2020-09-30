@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react'
 import ProgressBar from './progress-bar';
 import Context from '../context/context.js';
+import ReactCardFlip from 'react-card-flip';
+import FrontCard from './front-card';
+import BackCard from './back-card';
 
 const ReviewCards = () => {
   const { state, setActiveCard } = useContext(Context);
   const activeCard = state.activeCard;
 
-  const [ flipped, flipCard ] = useState(false);
-  const [ color, changeColor ] = useState('bg-dark');
+  const [ isFlipped, flipCard ] = useState(false);
   const [ progress, setProgress ] = useState(0);
 
   const nextCard = (e) => {
@@ -15,13 +17,11 @@ const ReviewCards = () => {
     if (activeCard === state.cards.length - 1) {
       setActiveCard(0);
       flipCard(false);
-      changeColor('bg-dark');
       updateProgress(0);
       return;
     }
     setActiveCard(activeCard + 1);
     flipCard(false);
-    changeColor('bg-dark');
     updateProgress(activeCard + 1);
   }
 
@@ -30,23 +30,17 @@ const ReviewCards = () => {
     if (activeCard === 0) {
       setActiveCard(state.cards.length - 1)
       flipCard(false);
-      changeColor('bg-dark');
       updateProgress(state.cards.length - 1);
       return;
     }
     setActiveCard(activeCard - 1);
     flipCard(false);
-    changeColor('bg-dark');
     updateProgress(activeCard - 1);
   }
 
-  const handleCardFlip = () => {
+  const handleCardFlip = (e) => {
+    e.stopPropagation();
     flipCard(prevState => !prevState);
-    if (color === 'bg-dark') {
-      changeColor('bg-secondary');
-    } else if (color === 'bg-secondary') {
-      changeColor('bg-dark');
-    }
     updateProgress(activeCard + 1);
   }
 
@@ -61,24 +55,17 @@ const ReviewCards = () => {
         <h2 className="text-center font-weight-bold pt-4">Create flash cards first!</h2>
       : <>
           <ProgressBar complete={progress} />
-          <div onClick={handleCardFlip} className={'container cursor-pointer ' + color} >
-            <div className="row justify-content-center align-items-center card-review">
-              <div className="col-md-1 col-2 text-center">
-                <i onClick={(e) => previousCard(e)} className="fas fa-chevron-left arrow hover"></i>
-              </div>
-              <div className="col-md-10 col-8">
-                <h2 className="text-center font-weight-bold text-white review-text">
-                  { !flipped ?
-                    state.cards[activeCard].question
-                  : state.cards[activeCard].answer
-                  }
-                </h2>
-              </div>
-              <div className="col-md-1 col-2 text-center">
-                <i onClick={(e) => nextCard(e)} className="fas fa-chevron-right arrow hover"></i>
-              </div>
-            </div>
-          </div>
+          <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical" infinite={true}>
+            <FrontCard
+              key="front"
+              question={state.cards[activeCard].question}
+              previousCard={(e) => previousCard(e)}
+              nextCard={(e) => nextCard(e)}
+              handleCardFlip={(e) => handleCardFlip(e)}
+            />
+            <BackCard key="back" answer={state.cards[activeCard].answer} handleCardFlip={(e) => handleCardFlip(e)} />
+          </ReactCardFlip>
+          <div className="text-center">Click on card to flip sides</div>
         </>
       }
     </>

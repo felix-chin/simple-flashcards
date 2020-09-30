@@ -21,6 +21,7 @@
   "homepage": "https://github.com/felix-chin/simple-flashcards#readme",
   "dependencies": {
     "react": "^16.13.1",
+    "react-card-flip": "^1.0.11",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {

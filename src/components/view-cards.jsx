@@ -39,9 +39,9 @@ export default function ViewCards(props) {
                     <h5 className="card-title text-dark font-weight-bold">Answer:</h5>
                     <p className="card-text text-white">{card.answer}</p>
                   </div>
-                  <div className="card-footer text-center bg-dark">
-                    <i onClick={() => handleUpdate(i)} className="far fa-edit text-muted mr-2 hover"></i>
-                    <i onClick={() => handleModal(i)} className="far fa-trash-alt text-muted hover"></i>
+                  <div className="card-footer text-center bg-dark d-flex justify-content-end">
+                    <i onClick={() => handleUpdate(i)} className="far fa-edit text-muted hover mr-4 h4"></i>
+                    <i onClick={() => handleModal(i)} className="far fa-trash-alt text-muted hover h4"></i>
                   </div>
                 </div>
               </div>
