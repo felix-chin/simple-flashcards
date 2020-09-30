@@ -5,7 +5,7 @@ A simple flashcard app made with React and styled with Bootstrap.
 
 Link to a live demo of the application: 
 
-https://simple-flashcards.felixchin.com/
+https://flashcards.felixchin.com/
 
 ## Technologies Used
 
