@@ -1,5 +1,5 @@
 node_modules
 .vscode
 .idea
-
+dist/main.js*
 .DS_Store
