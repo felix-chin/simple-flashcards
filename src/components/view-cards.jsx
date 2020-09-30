@@ -24,7 +24,7 @@ export default function ViewCards(props) {
       { isOpen &&
         <Modal activeCard={cards[activeCard]} toggleModal={toggleModal} deleteCards={props.deleteCards}/>
       }
-      <h2 className="text-center font-weight-bold mb-3">My Cards</h2>
+      <h2 className="text-center font-weight-bold mb-3"><i className="far fa-eye icon"></i> My Cards</h2>
       <div className="container">
         <div className="row row-cols-md-3 row-cols-1">
           { cards.map((card, i) => {

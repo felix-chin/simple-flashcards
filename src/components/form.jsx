@@ -17,7 +17,7 @@ const Form = (props) => {
       </div>
       <div className="d-flex justify-content-end mt-3">
         <button type="reset" className="btn btn-outline-danger mr-2">Cancel</button>
-        <button type="submit" className="btn btn-outline-primary">Save Card</button>
+        <button type="submit" className="btn btn-outline-info">Save Card</button>
       </div>
     </form>
   )

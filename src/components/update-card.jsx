@@ -34,7 +34,7 @@ const UpdateCard = (props) => {
 
   return (
     <>
-      <h2 className="text-center font-weight-bold mb-3">Update Card</h2>
+      <h2 className="text-center font-weight-bold mb-3"><i className="fas fa-edit icon"></i> Update Card</h2>
       <div className="container">
         <Form
           card={input}

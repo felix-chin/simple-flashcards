@@ -38,7 +38,7 @@ export default class CreateCard extends React.Component {
   render() {
     return (
       <>
-        <h2 className="text-center font-weight-bold mb-3">Create New Card</h2>
+        <h2 className="text-center font-weight-bold mb-3"><i className="fas fa-pencil-alt icon"></i> Create New Card</h2>
         <div className="container">
           <Form
             card={this.state}
